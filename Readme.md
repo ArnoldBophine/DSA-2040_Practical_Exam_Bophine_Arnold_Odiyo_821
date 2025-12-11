@@ -102,7 +102,7 @@ The implementation of the Star Schema has enabled efficient querying of sales pe
 4.  **Strategic Value**: This warehouse supports decision-making by providing a 'Single Source of Truth'. Managers can now answer "Who are our top customers in France?" or "How did 'Lunch Bags' perform in Q1?" without accessing the slow transactional system.
 
 *Note on Data:* The dataset dates were shifted to 2024-2025 to simulate a current operational environment as per exam instructions.
-**Detailed Report**: [DataWarehousing\DataWarehousing_Report.md](DataWarehousing\DataWarehousing_Report.md)
+**Detailed Report**: [DataWarehousing/DataWarehousing_Report.md](DataWarehousing/DataWarehousing_Report.md)
 
 ---
 
@@ -140,5 +140,3 @@ Implemented in `DataMining/mining_iris_basket.py`.
 - **Output**: `DataMining/association_rules.csv`.
 
 ---
-
-    ```
