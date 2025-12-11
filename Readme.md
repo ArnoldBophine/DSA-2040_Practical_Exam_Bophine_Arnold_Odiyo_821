@@ -73,3 +73,34 @@ I chose the **Star Schema** over the Snowflake Schema for the following reasons:
 The SQL `CREATE TABLE` statements are located in `DataWarehousing/warehouse_schema.sql`.
 
 ---
+
+### Task 2: ETL Process Implementation
+The ETL process is implemented in `DataWarehousing/etl_retail.py`. 
+- **Extract**: Reads `Copy of Online Retail.csv`.
+- **Transform**: Cleans data, calculates `TotalSales`, shifts dates to 2024-2025 to simulate current data, and creates dimensions.
+- **Load**: Dimensions and Fact table loaded into SQLite database `DataWarehousing/retail_dw.db`.
+
+---
+
+### Task 3: OLAP Queries and Analysis
+
+#### 3.1 OLAP Queries
+Three OLAP operations (Roll-up, Drill-down, Slice) are implemented in `DataWarehousing/olap_queries.sql`.
+
+#### 3.2 Visualization
+The following chart shows the Top 10 Countries by Total Sales, generated from the Data Warehouse:
+
+![Sales by Country](sales_by_country.png)
+
+#### 3.3 Analysis Report
+**Insights from Data Warehouse:**
+The implementation of the Star Schema has enabled efficient querying of sales performance across multiple dimensions (Time, Customer, Product). 
+
+1.  **Sales Trends**: The Roll-up analysis (Sales by Country and Quarter) highlights that the **United Kingdom** is the dominant market, contributing significantly more revenue than other regions. The seasonal drill-down for 2024-2025 reveals peak sales periods, likely correlated with holiday seasons, suggesting inventory should be stocked up leading into Q4.
+2.  **Product Performance**: Slicing by product description (e.g., 'HEART' related items) allows the marketing team to target specific niches. The results show strong demand for sentimental/gift items in specific regions.
+3.  **Data Quality**: The ETL process successfully handled null CustomerIDs and invalid transactions (negative specific quantities), ensuring the warehouse contains high-quality, actionable data.
+4.  **Strategic Value**: This warehouse supports decision-making by providing a 'Single Source of Truth'. Managers can now answer "Who are our top customers in France?" or "How did 'Lunch Bags' perform in Q1?" without accessing the slow transactional system.
+
+*Note on Data:* The dataset dates were shifted to 2024-2025 to simulate a current operational environment as per exam instructions.
+
+---
