@@ -221,7 +221,7 @@ def visualize_data():
         df_viz = pd.read_sql_query(query, conn)
         
         plt.figure(figsize=(12, 6))
-        sns.barplot(data=df_viz, x='total_sales', y='country', palette='viridis')
+        sns.barplot(data=df_viz, x='total_sales', y='country', hue='country', palette='viridis', legend=False)
         plt.title('Top 10 Countries by Total Sales (2024-2025)')
         plt.xlabel('Total Sales')
         plt.ylabel('Country')
