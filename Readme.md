@@ -7,7 +7,7 @@ This repository contains the solution for the DSA 2040 End Semester Practical Ex
 
 ---
 
-## Section 1: Data Warehousing (50 Marks)
+## Section 1: Data Warehousing 
 
 ### Task 1: Data Warehouse Design
 
@@ -102,10 +102,11 @@ The implementation of the Star Schema has enabled efficient querying of sales pe
 4.  **Strategic Value**: This warehouse supports decision-making by providing a 'Single Source of Truth'. Managers can now answer "Who are our top customers in France?" or "How did 'Lunch Bags' perform in Q1?" without accessing the slow transactional system.
 
 *Note on Data:* The dataset dates were shifted to 2024-2025 to simulate a current operational environment as per exam instructions.
+**Detailed Report**: [DataWarehousing\DataWarehousing_Report.md](DataWarehousing\DataWarehousing_Report.md)
 
 ---
 
-## Section 2: Data Mining (50 Marks)
+## Section 2: Data Mining 
 
 **Detailed Report**: [DataMining/DataMining_Report.md](DataMining/DataMining_Report.md)
 
@@ -139,22 +140,5 @@ Implemented in `DataMining/mining_iris_basket.py`.
 - **Output**: `DataMining/association_rules.csv`.
 
 ---
-## How to Run This Project
-1.  **Clone the Repository**:
-    ```bash
-    git clone <repo_url>
-    ```
-2.  **Install Dependencies**:
-    ```bash
-    pip install pandas numpy matplotlib seaborn scikit-learn mlxtend
-    ```
-3.  **Run ETL (Section 1)**:
-    ```bash
-    python DataWarehousing/etl_retail.py
-    ```
-4.  **Run Data Mining (Section 2)**:
-    ```bash
-    python DataMining/preprocessing_iris.py
-    python DataMining/clustering_iris.py
-    python DataMining/mining_iris_basket.py
+
     ```
