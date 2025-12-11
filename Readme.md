@@ -104,3 +104,57 @@ The implementation of the Star Schema has enabled efficient querying of sales pe
 *Note on Data:* The dataset dates were shifted to 2024-2025 to simulate a current operational environment as per exam instructions.
 
 ---
+
+## Section 2: Data Mining (50 Marks)
+
+**Detailed Report**: [DataMining/DataMining_Report.md](DataMining/DataMining_Report.md)
+
+### Task 1: Data Preprocessing and Exploration
+Implemented in `DataMining/preprocessing_iris.py`.
+- **Method**: The Iris dataset (150 samples) was loaded, checked for nulls (0 found), and normalized using Min-Max scaling.
+- **Exploration**: Generated Pairplots and Heatmaps.
+    - **Insight**: Setosa is linearly separable. Petal length and width are highly correlated (0.96).
+    - **Artifacts**: `DataMining/pairplot.png`, `DataMining/correlation_heatmap.png`.
+
+### Task 2: Clustering
+Implemented in `DataMining/clustering_iris.py`.
+- **Algorithm**: K-Means Clustering on the Iris dataset.
+- **Results**:
+    - **Optimal k**: Verified as **k=3** using the Elbow Method (`DataMining/elbow_curve.png`).
+    - **Accuracy**: ARI of **0.62**. While Setosa was perfectly clustered, overlap between Versicolor and Virginica reduced the score.
+    - **Visualization**: `DataMining/clusters_scatter.png`.
+
+### Task 3: Classification and Association Rules
+Implemented in `DataMining/mining_iris_basket.py`.
+
+#### 3.1 Classification
+- **Models**: Decision Tree vs KNN (k=5).
+- **Results**: Both models achieved high accuracy on the test set. 
+    - **Correction**: While the test set showed 100% accuracy (likely due to a lucky split of easy instances), 5-Fold Cross-Validation revealed more realistic performance: **KNN (97.3%)** slightly outperformed Decision Tree (95.3%).
+- **Visual**: Decision Tree logic visualized in `DataMining/decision_tree.png`.
+
+#### 3.2 Association Rule Mining (Market Basket)
+- **Data**: Synthetic transaction data (50 baskets) with injected patterns (e.g., Bread+Butter).
+- **Key Finding**: The rule `Bread -> Butter` appeared with **Lift = 1.33**, indicating a strong positive correlation, suggesting these items should be merchandised together.
+- **Output**: `DataMining/association_rules.csv`.
+
+---
+## How to Run This Project
+1.  **Clone the Repository**:
+    ```bash
+    git clone <repo_url>
+    ```
+2.  **Install Dependencies**:
+    ```bash
+    pip install pandas numpy matplotlib seaborn scikit-learn mlxtend
+    ```
+3.  **Run ETL (Section 1)**:
+    ```bash
+    python DataWarehousing/etl_retail.py
+    ```
+4.  **Run Data Mining (Section 2)**:
+    ```bash
+    python DataMining/preprocessing_iris.py
+    python DataMining/clustering_iris.py
+    python DataMining/mining_iris_basket.py
+    ```
